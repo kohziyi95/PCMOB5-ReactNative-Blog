@@ -77,7 +77,7 @@ export default function SignupScreen() {
           style={{ fontWeight: "400", fontSize: 17, padding: 5, color: "blue" }}
           onPress={() => {
             navigation.navigate(LOGIN_SCREEN);
-            
+
           }}
         >
           Already have an account? Click here to login!
@@ -123,5 +123,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 15,
     color: "red",
+    padding:5
   },
 });

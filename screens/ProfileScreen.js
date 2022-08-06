@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
-import { LOGIN_SCREEN } from "../constants";
+import { LOGIN_SCREEN, POST_SCREEN } from "../constants";
 import axios from "axios";
 
 const API = "https://pcmob5-blog-api.kohziyi95.repl.co";
@@ -11,6 +11,7 @@ const API_WHOAMI = "/whoami";
 export default function ProfileScreen() {
   const navigation = useNavigation();
   const [username, setUsername] = useState("loading...");
+  const [errorText, setErrorText] = useState("");
 
   async function loadUsername() {
     const token = await AsyncStorage.getItem("token");
@@ -38,6 +39,14 @@ export default function ProfileScreen() {
       <Text style={{ fontSize: 20, fontWeight: "700", marginBottom: 10 }}>
         Your Username: {username}
       </Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate(POST_SCREEN);
+        }}
+      >
+        <Text style={styles.buttonText}>View Posts</Text>
+      </TouchableOpacity>
       <View style={{ flex: 1 }} />
       <TouchableOpacity
         style={styles.button}
@@ -77,6 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 15,
     width: "100%",
+    marginTop: 30,
   },
   buttonText: {
     textAlign: "center",
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
   },
   outlinedButtonText: {
     textAlign: "center",
-    fontWeight: "6400",
+    fontWeight: "600",
     fontSize: 12,
     padding: 15,
     color: "black",

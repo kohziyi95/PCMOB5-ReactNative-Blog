@@ -6,7 +6,9 @@ import React, { useEffect, useState } from "react";
 import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import { LOGIN_SCREEN, PROFILE_SCREEN , SIGNUP_SCREEN} from "./constants";
+import PostScreen from "./screens/PostScreen";
+import AddScreen from "./screens/AddScreen";
+import { LOGIN_SCREEN, PROFILE_SCREEN , SIGNUP_SCREEN, POST_SCREEN, ADD_SCREEN} from "./constants";
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -39,6 +41,9 @@ export default function App() {
         <Stack.Screen component={LoginScreen} name={LOGIN_SCREEN} />
         <Stack.Screen component={SignupScreen} name={SIGNUP_SCREEN} />
         <Stack.Screen component={ProfileScreen} name={PROFILE_SCREEN} />
+        <Stack.Screen component={PostScreen} name={POST_SCREEN} />
+        <Stack.Screen component={AddScreen} name={ADD_SCREEN} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

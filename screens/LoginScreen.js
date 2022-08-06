@@ -120,5 +120,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 15,
     color: "red",
+    padding: 5
   },
 });
